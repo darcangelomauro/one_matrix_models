@@ -13,7 +13,7 @@ bool read_init_stream(istream& in, struct Simul_params& sm)
         
         while(in >> temp)
         {
-            if(temp == "GEOM")
+            if(temp == "GEOM:")
             {
                 sm.control += temp;
                 in >> sm.GEOM;
