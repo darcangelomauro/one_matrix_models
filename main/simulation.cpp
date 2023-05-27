@@ -35,7 +35,6 @@ int main(int argc, char** argv)
 
     // RNG:
     // Initialize random number generator
-    time_t seed = time(NULL);
     mt19937 gen(seed);
     uniform_real_distribution<double> dis_real(0., 1.);
     clog << "RNG seed: " << seed << endl << endl;

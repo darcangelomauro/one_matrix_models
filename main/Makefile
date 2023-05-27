@@ -20,7 +20,7 @@ all: rmxeq mkdep mkxeq
 # main programs and required modules 
 
 MAIN = simulation 
-SOURCE = action metropolis
+SOURCE = action metropolis parameters utils
 
 # search path for modules
 
