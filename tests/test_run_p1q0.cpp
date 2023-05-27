@@ -7,8 +7,8 @@
 
 #define N 100
 #define G2 -3
-#define NDA 10000 // number of dual averaging iterations
-#define NTH 10000 // number of thermalization iterations
+#define NDA 100000 // number of dual averaging iterations
+#define NTH 100000 // number of thermalization iterations
 #define NMEAS 1000 // number of measurements
 #define NSWP 100 // number of sweeps in-between measurements
 #define TGTAR 0.8 // target acceptance rate

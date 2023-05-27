@@ -3,10 +3,11 @@
 
 #include <ctime>
 #include <random>
+#include <functional>
 
 double metropolis(
-    double action_function(double*, const int&, const double&),
-    double action_difference_function(double*, const int&, const double&, const int&, const double&),
+    std::function<double(double*, const int&, const double&)>,
+    std::function<double(double*, const int&, const double&, const int&, const double&)>,
     const double&,
     const double&,
     const int&,
@@ -16,8 +17,8 @@ double metropolis(
 );
 
 double metropolis_scale_tuning(
-    double action_function(double*, const int&, const double&),
-    double action_difference_function(double*, const int&, const double&, const int&, const double&),
+    std::function<double(double*, const int&, const double&)>,
+    std::function<double(double*, const int&, const double&, const int&, const double&)>,
     const double&,
     const double&,
     const double&,

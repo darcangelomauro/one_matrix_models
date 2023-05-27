@@ -5,8 +5,8 @@
 using namespace std;
 
 double metropolis(
-    double action_function(double*, const int&, const double&),
-    double action_difference_function(double*, const int&, const double&, const int&, const double&),
+    function<double(double*, const int&, const double&)> action_function,
+    function<double(double*, const int&, const double&, const int&, const double&)> action_difference_function,
     const double& g2,
     const double& scale,
     const int& Nsweeps,
@@ -28,7 +28,7 @@ double metropolis(
     // sweep the system Nsweeps times
     for(int i=0; i<Nsweeps; ++i)
     {
-        // each sweep consists of n attepmpted moves
+        // each sweep consists of n attempted moves
         for(int j=0; j<n; ++j)
         {
             int k = dis_int(gen); 
@@ -71,8 +71,8 @@ double metropolis(
 }
 
 double metropolis_scale_tuning(
-    double action_function(double*, const int&, const double&),
-    double action_difference_function(double*, const int&, const double&, const int&, const double&),
+    function<double(double*, const int&, const double&)> action_function,
+    function<double(double*, const int&, const double&, const int&, const double&)> action_difference_function,
     const double& g2,
     const double& initial_scale,
     const double& target_ar,
