@@ -31,7 +31,6 @@ int main(int argc, char** argv)
     string path_lvl0 = argv[3];
     string path_lvl1 = path_lvl0 + "/" + cc_to_name(g2);
     string init_filename = path_lvl0 + "/init.txt";
-    clog << "Writing to folder: " << path_lvl1 << endl;
 
 
     // RNG:
@@ -76,7 +75,7 @@ int main(int argc, char** argv)
     if(sm.GEOM == "p1q0")
     {
         action_function = action_p1q0;
-        action_difference = action_diff_p1q0;
+        action_difference = action_diff_p1q0_bruteforce;
     }
     else if(sm.GEOM == "p0q1")
     {

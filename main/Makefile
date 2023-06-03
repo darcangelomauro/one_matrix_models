@@ -19,7 +19,7 @@ all: rmxeq mkdep mkxeq
 
 # main programs and required modules 
 
-MAIN = simulation 
+MAIN = simulation simulation_bruteforce 
 SOURCE = action metropolis parameters utils
 
 # search path for modules

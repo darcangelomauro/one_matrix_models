@@ -49,6 +49,7 @@ while read -r G2_VAL
 do
 	# Create g2 directory
 	G2_STRING=$(echo "$G2_VAL" | tr - n | tr . d)
+	mkdir $WORK_PATH/$G2_STRING
 	
 	LOG_FILE=$WORK_PATH/$G2_STRING.log
 
@@ -56,7 +57,7 @@ do
 	SEED_LVL1=$((SEED_LVL0+COUNTER))
 	
 	# Submit job
-	./simulation $SEED_LVL1 $G2_VAL $WORK_PATH > $LOG_FILE 2>&1
+	nohup ./simulation $SEED_LVL1 $G2_VAL $WORK_PATH > $LOG_FILE &
 
 	# Increment counter
 	COUNTER=$((COUNTER+1))

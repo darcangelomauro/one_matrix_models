@@ -23,17 +23,18 @@ int main()
     {
         double v[N];
         for(int i=0; i<N; ++i)
-            v[i] = SCALE_S*dis(gen);
+            v[i] = SCALE_S*(2*dis(gen)-1);
         
         double S = action_p1q0(v, N, G2);
-        double delta = SCALE_D*dis(gen);
+        double delta = SCALE_D*(2*dis(gen)-1);
         int k = dis_int(gen); 
         double dS_fast = action_diff_p1q0(v, N, G2, k, delta);
+        double dS_slow = action_diff_p1q0_bruteforce(v, N, G2, k, delta);
         v[k] += delta;
         double Sp = action_p1q0(v, N, G2);
-        double dS_slow = Sp-S;
+        double dS = Sp-S;
 
-        cout << setprecision(16) << "fast dS: " << dS_fast << endl << "slow dS: " << dS_slow << endl << "S: " << S << endl;
+        cout << setprecision(16) << "fast dS: " << dS_fast << endl << "slow dS: " << dS_slow << endl << "real dS: " << dS << endl << "S: " << S << endl;
         cout << setprecision(16) << "rel error: " << abs(dS_fast-dS_slow)/dS_fast << endl << endl;
     }
 

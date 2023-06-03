@@ -19,7 +19,7 @@ all: rmxeq mkdep mkxeq
 
 # main programs and required modules 
 
-MAIN = difference_p0q1 difference_p1q0 degeneracy_p0q1 degeneracy_p1q0 speed_p1q0 speed_p0q1 test_run_p1q0 test_run_p0q1
+MAIN = difference_p0q1 difference_p1q0 degeneracy_p0q1 degeneracy_p1q0 speed_p1q0 speed_p0q1 test_run_p1q0 test_run_p0q1 action_p1q0
 SOURCE = action metropolis
 
 # search path for modules

@@ -27,6 +27,29 @@ double action_p1q0(double* eigvals, const int& n, const double& g2)
     return 2*S;
 }
 
+double action_p1q0_bruteforce(double* eigvals, const int& n, const double& g2)
+{
+    double e = 0;
+    double e2 = 0;
+    double e3 = 0;
+    double e4 = 0;
+    double vdm = 0;
+
+    for(int i=0; i<n; ++i)
+    {
+        e += eigvals[i];
+        e2 += eigvals[i]*eigvals[i];
+        e3 += eigvals[i]*eigvals[i]*eigvals[i];
+        e4 += eigvals[i]*eigvals[i]*eigvals[i]*eigvals[i];
+        for(int j=i+1; j<n; ++j)
+        {
+            vdm += -2*log(abs(eigvals[i]-eigvals[j]));
+        }
+    }
+
+    return 2*n*(g2*e2 + e4) + 2*g2*e*e + 8*e*e3 + 6*e2*e2 + vdm;
+}
+
 double action_p0q1(double* eigvals, const int& n, const double& g2)
 {
     double S = 0;
@@ -81,6 +104,18 @@ double action_diff_p1q0(double* eigvals, const int& n, const double& g2, const i
     }
 
     return 2*dS;
+}
+
+double action_diff_p1q0_bruteforce(double* eigvals, const int& n, const double& g2, const int& k, const double& delta)
+{
+    double S1 = action_p1q0(eigvals, n, g2);
+    double* temp_eigvals = new double[n];
+    for(int i=0; i<n; ++i)
+        temp_eigvals[i] = eigvals[i];
+    temp_eigvals[k] += delta; 
+    double S2 = action_p1q0(temp_eigvals, n, g2);
+    delete [] temp_eigvals;
+    return S2-S1;
 }
 
 double action_diff_p0q1(double* eigvals, const int& n, const double& g2, const int& k, const double& delta)
