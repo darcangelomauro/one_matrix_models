@@ -99,7 +99,7 @@ int main(int argc, char** argv)
     // RANDOM INITIALIZATION
     double* eigvals = new double[sm.N]; 
     for(int i=0; i<sm.N; ++i)
-        eigvals[i] = dis_real(gen);
+        eigvals[i] = 2*dis_real(gen)-1;
     
     double scale = 0.01;
 
